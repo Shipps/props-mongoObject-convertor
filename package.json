@@ -1,0 +1,20 @@
+{
+  "name": "xpath-convertor",
+  "version": "0.0.1",
+  "description": "xpath convertor tool",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "mongoose": "~4.3.7",
+    "express": "^4.9.8",
+    "gulp": "~3.9.0",
+    "lodash": "~3.2.0",
+    "gulp-props2json": "2.0.0"
+    },
+  "engines": {
+    "node" : "4.4.4"
+  }
+}

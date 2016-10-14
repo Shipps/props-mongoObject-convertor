@@ -1,0 +1,72 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="download.js"></script>
+</head>
+<body>
+Step 2. Transform Xpaths to Mongo Object and Ingest
+<input id="files" type="file" />
+<button id="confirmText" type="submit" class="btn btn-primary" onclick="convertXpath()">Ingest</button>
+
+<hr />
+Step 2. Validate Get Xpaths (App specific)
+<input id="name" type="text" />
+<button type="submit" class="btn btn-primary" onclick="getXpath()">Load </button>
+
+<script>
+    function getXpath() {
+        $.get( "/api/getXpaths/" + $("#name").val());
+    }
+
+    function convertXpath() {
+
+
+        var arr = [];
+        var file = document.getElementById('files').files[0];
+        if (file) {
+            // Using Sever Side - http://localhost:3003/
+            $.get( "/api/processXpaths/" + file.name);
+
+            // Using Client Side - Launch index.html directly
+            // create reader
+           /* var reader = new FileReader();
+            reader.readAsText(file);
+            reader.onload = function(e) {
+                try {
+                    myObj = JSON.parse(e.target.result);
+
+                    var app_name = "test";
+                    if(file.name.indexOf("word") !== -1) {
+                        app_name = "word";
+                    } else if(file.name.indexOf("ppt") !== -1) {
+                        app_name = "ppt";
+                    } else if(file.name.indexOf("access") !== -1) {
+                        app_name = "access";
+                    } else if(file.name.indexOf("excel") !== -1) {
+                        app_name = "excel";
+                    }
+
+                    for(var propertyName in myObj) {
+                        var obj = {};
+                        obj.app_type = app_name;
+                        obj.xpath = {
+                        	"key": propertyName,
+						    "value": myObj[propertyName]
+						};
+
+                        arr.push(JSON.stringify(obj));
+                    }
+
+                    download(arr, file.name, "text/json");
+                } catch (e) {
+                }
+
+
+            };*/
+        }
+
+    }
+
+</script>
+</body>
+</html>
