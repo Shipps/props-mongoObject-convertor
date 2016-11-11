@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var port = process.env.PORT || 3003;
 
 //-----------Connecting Mongo ------------------- // todo: synchronize mongo connection with app listen
-mongoose.connect('mongodb://localhost/runnerv2');
+mongoose.connect('mongodb://root:admin@ds151127.mlab.com:51127/runnerv2');
 var Xpath     = require(__dirname + '/app.models.xpath.js');
 
 var conn = mongoose.connection;
